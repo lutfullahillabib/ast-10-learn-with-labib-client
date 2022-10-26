@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+
     return (
         <div>
             <div className="relative mt-16 bg-blue-400">
@@ -97,21 +98,14 @@ const Footer = () => {
                                         <li>
                                             <Link
                                                 className="text-black transition hover:text-black/75"
-                                                to="/"
+                                                to="/blog"
                                                 rel="noreferrer"
                                             >
                                                 Blog
                                             </Link>
                                         </li>
 
-                                        <li>
-                                            <Link to='/'
-                                                className="text-black transition hover:text-black/75"
-                                                rel="noreferrer"
-                                            >
-                                                FAQ
-                                            </Link>
-                                        </li>
+
                                     </ul>
                                 </nav>
 
@@ -123,7 +117,7 @@ const Footer = () => {
                         <p className="text-sm text-white font-semibold">
                             © Copyright 2022. All rights reserved.
                         </p>
-                       
+
                     </div>
                 </div>
             </div>
