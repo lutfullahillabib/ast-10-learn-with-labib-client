@@ -4,7 +4,7 @@ import CategoryCourses from './CategoryCourses';
 const CoursesByCategoryList = () => {
 
     const singleCourse = useLoaderData();
-    // console.log(singleCourse[0]);
+    // console.log(singleCourse);
 
 
     return (

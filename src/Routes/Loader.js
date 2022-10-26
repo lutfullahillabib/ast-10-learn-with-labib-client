@@ -14,4 +14,9 @@ const singleCategory =
         return fetch(`https://learn-with-labib-server.vercel.app/categories/${params.name}`)
     };
 
-export { allCourses, allCategories, singleCategory };
+const singleCourse =
+    async ({ params }) => {
+        return fetch(`https://learn-with-labib-server.vercel.app/courses/${params.id}`)
+    };
+
+export { allCourses, allCategories, singleCategory, singleCourse };
