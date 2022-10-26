@@ -9,9 +9,9 @@ const allCategories =
         return fetch('https://learn-with-labib-server.vercel.app/categories')
     };
 
-const singleCourse =
+const singleCategory =
     async ({ params }) => {
-        return fetch(`https://openapi.programming-hero.com/api/quiz/${params.id}`)
+        return fetch(`https://learn-with-labib-server.vercel.app/categories/${params.name}`)
     };
 
-export { allCourses, allCategories, singleCourse };
+export { allCourses, allCategories, singleCategory };
