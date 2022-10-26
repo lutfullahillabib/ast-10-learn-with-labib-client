@@ -1,29 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import { FaDownload, FaLock, FaStar } from "react-icons/fa";
+import { FaArrowLeft, FaDownload, FaLock, FaStar } from "react-icons/fa";
 
-import ReactToPdf from "react-to-pdf";
-
+import { useReactToPrint } from 'react-to-print';
 
 const CourseDetails = () => {
-
-
-    const ref = React.createRef();
-    const options = {
-        orientation: 'landscape',
-        unit: 'in',
-        // format: [11.25, 7.50]
-        format: [20, 20]
-    };
 
     const singleCourse = useLoaderData();
     console.log(singleCourse);
 
     const { id, author, category, course_name, image, price, rating, description, sub_title, requirements } = singleCourse;
 
-    return (
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        documentTitle: `Learn-With-Labib-${id}-${category}`,
+        onAfterPrint: () => alert("Print Success!", "", "success")
+    })
 
-        <div className='flex justify-center items-center' ref={ref}>
+    return (
+        <div className='flex justify-center items-center' ref={componentRef}>
 
             <div className="py-10 mx-10 md:px-36 lg:px-16" >
 
@@ -37,15 +33,18 @@ const CourseDetails = () => {
                         <div className="mb-8">
 
                             <p className="flex my-3 justify-between">
+
                                 <Link to='/checkout' className='flex gap-3 items-center text-white px-3 py-2 bg-blue-900 rounded-full hover:bg-blue-400 hover:text-black font-semibold'><FaLock />Get Premium Access</Link>
 
-                                <ReactToPdf targetRef={ref} filename={`Learn-With-Labib-${id}-${category}.pdf`} options={options} x={0.5} y={0.5} scale={0.8}>
-                                    {({ toPdf }) => (
-                                        <button onClick={toPdf} className='text-white hover:text-black'>
-                                            <FaDownload className='text-3xl' />
-                                        </button>
-                                    )}
-                                </ReactToPdf>
+                                <Link to={`/categories/${category}`}>
+                                    <button className='text-white hover:text-black'>
+                                        <FaArrowLeft className='text-3xl' />
+                                    </button>
+                                </Link>
+
+                                <button onClick={handlePrint} className='text-white hover:text-black'>
+                                    <FaDownload className='text-3xl' />
+                                </button>
 
                             </p>
 
@@ -94,3 +93,4 @@ const CourseDetails = () => {
 };
 
 export default CourseDetails;
+
