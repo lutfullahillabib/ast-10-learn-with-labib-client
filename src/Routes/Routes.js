@@ -7,7 +7,7 @@ import Login from "../Components/Log/Login";
 import Register from "../Components/Log/Register";
 import Error from "../Components/Shared/Error";
 import Main from "../Layout/Main";
-import { allCategories, allCourses, singleCategory } from "./Loader";
+import { allCategories, singleCategory } from "./Loader";
 
 const { createBrowserRouter } = require("react-router-dom");
 
