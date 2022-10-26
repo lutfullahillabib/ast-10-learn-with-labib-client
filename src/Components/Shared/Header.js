@@ -7,7 +7,7 @@ const Header = () => {
 
     //   dark-light, profile-img
     return (
-        <div className="bg-blue-600">
+        <div className="bg-blue-600 sticky top-0 z-50">
             <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between z-50">
                     <div className="flex items-center">
@@ -52,15 +52,7 @@ const Header = () => {
                                     Blog
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink
-                                    to="/faq"
-                                    title="FAQ"
-                                    className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
-                                >
-                                    FAQ
-                                </NavLink>
-                            </li>
+
                         </ul>
                     </div>
 
@@ -168,15 +160,7 @@ const Header = () => {
                                                     Blog
                                                 </NavLink>
                                             </li>
-                                            <li>
-                                                <NavLink
-                                                    to="/faq"
-                                                    title="FAQ"
-                                                    className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-black text-xl"
-                                                >
-                                                    FAQ
-                                                </NavLink>
-                                            </li>
+
                                             <li>
                                                 <NavLink
                                                     to="/login"
