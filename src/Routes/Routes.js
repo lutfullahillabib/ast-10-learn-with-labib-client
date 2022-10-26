@@ -1,7 +1,6 @@
 import Blog from "../Components/Blog/Blog";
 import Checkout from "../Components/Checkout/Checkout";
 import AllCategories from "../Components/Courses/AllCategories";
-import AllCourses from "../Components/Courses/AllCourses";
 import CoursesByCategoryList from "../Components/Courses/CoursesByCategoryList";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Log/Login";
@@ -25,11 +24,6 @@ const router = createBrowserRouter([
             {
                 path: '/home',
                 element: <Home></Home>
-            },
-            {
-                path: '/courses',
-                loader: allCourses,
-                element: <AllCourses></AllCourses>
             },
             {
                 path: '/categories',
