@@ -1,6 +1,7 @@
 import Blog from "../Components/Blog/Blog";
 import Checkout from "../Components/Checkout/Checkout";
 import AllCategories from "../Components/Courses/AllCategories";
+import AllCourses from "../Components/Courses/AllCourses";
 import CourseDetails from "../Components/Courses/CourseDetails";
 import CoursesByCategoryList from "../Components/Courses/CoursesByCategoryList";
 import Home from "../Components/Home/Home";
@@ -9,7 +10,7 @@ import Register from "../Components/Log/Register";
 import Error from "../Components/Shared/Error";
 import Thanks from "../Components/Thanks/Thanks";
 import Main from "../Layout/Main";
-import { allCategories, singleCategory, singleCourse } from "./Loader";
+import { allCategories, allCourses, singleCategory, singleCourse } from "./Loader";
 import PrivateRoute from "./PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -37,7 +38,12 @@ const router = createBrowserRouter([
                         path: '/categories/:name',
                         loader: singleCategory,
                         element: <CoursesByCategoryList></CoursesByCategoryList>
-                    }
+                    },
+                    {
+                        path: '/categories',
+                        loader: allCourses,
+                        element: <AllCourses></AllCourses>
+                    },
                 ]
             },
             {
@@ -64,7 +70,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/thanks',
-                element: <Thanks />
+                element: <PrivateRoute><Thanks /></PrivateRoute>
             },
 
         ]
