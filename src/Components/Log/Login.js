@@ -9,7 +9,7 @@ import toast from 'react-hot-toast';
 const Login = () => {
 
     const [error, setError] = useState('');
-    const { signIn,  providerLogin } = useContext(AuthContext);
+    const { signIn, providerLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -24,8 +24,65 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 navigate(from, { replace: true });
+
+                toast.success(`Login Successful, 'Email' = ${user.email}`, {
+                    duration: 3000,
+                    position: "top-center",
+
+                    // Styling
+                    style: {
+                        borderRadius: "10px",
+                        background: "#333",
+                        color: "#fff",
+                    },
+                    className: "",
+
+                    // Custom Icon
+                    icon: '✔️',
+
+                    // Change colors of success/error/loading icon
+                    iconTheme: {
+                        primary: "#000",
+                        secondary: "#fff",
+                    },
+
+                    // Aria
+                    ariaProps: {
+                        role: "status",
+                        "aria-live": "polite",
+                    },
+                });
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                toast.error(`Error = ${error.message}`, {
+                    duration: 3000,
+                    position: "top-center",
+
+                    // Styling
+                    style: {
+                        borderRadius: "10px",
+                        background: "#333",
+                        color: "#fff",
+                    },
+                    className: "",
+
+                    // Custom Icon
+                    icon: '❌',
+
+                    // Change colors of success/error/loading icon
+                    iconTheme: {
+                        primary: "#000",
+                        secondary: "#fff",
+                    },
+
+                    // Aria
+                    ariaProps: {
+                        role: "status",
+                        "aria-live": "polite",
+                    },
+                });
+            })
     }
 
     const handleGitHubSignIn = () => {
@@ -34,8 +91,97 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 navigate(from, { replace: true });
+
+                if (user.email != null) {
+                    toast.success(`Login Successful, 'Email' = ${user.email}`, {
+                        duration: 3000,
+                        position: "top-center",
+
+                        // Styling
+                        style: {
+                            borderRadius: "10px",
+                            background: "#333",
+                            color: "#fff",
+                        },
+                        className: "",
+
+                        // Custom Icon
+                        icon: '✔️',
+
+                        // Change colors of success/error/loading icon
+                        iconTheme: {
+                            primary: "#000",
+                            secondary: "#fff",
+                        },
+
+                        // Aria
+                        ariaProps: {
+                            role: "status",
+                            "aria-live": "polite",
+                        },
+                    });
+                }
+                else {
+                    toast.success(`Login Successful, 'Name' = ${user.displayName}`, {
+                        duration: 3000,
+                        position: "top-center",
+
+                        // Styling
+                        style: {
+                            borderRadius: "10px",
+                            background: "#333",
+                            color: "#fff",
+                        },
+                        className: "",
+
+                        // Custom Icon
+                        icon: '✔️',
+
+                        // Change colors of success/error/loading icon
+                        iconTheme: {
+                            primary: "#000",
+                            secondary: "#fff",
+                        },
+
+                        // Aria
+                        ariaProps: {
+                            role: "status",
+                            "aria-live": "polite",
+                        },
+                    });
+                }
+
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                toast.error(`Error = ${error.message}`, {
+                    duration: 3000,
+                    position: "top-center",
+
+                    // Styling
+                    style: {
+                        borderRadius: "10px",
+                        background: "#333",
+                        color: "#fff",
+                    },
+                    className: "",
+
+                    // Custom Icon
+                    icon: '❌',
+
+                    // Change colors of success/error/loading icon
+                    iconTheme: {
+                        primary: "#000",
+                        secondary: "#fff",
+                    },
+
+                    // Aria
+                    ariaProps: {
+                        role: "status",
+                        "aria-live": "polite",
+                    },
+                });
+            })
     }
 
     const handleSubmit = event => {
@@ -52,12 +198,67 @@ const Login = () => {
                 form.reset();
                 setError('');
                 navigate(from, { replace: true });
+
+                toast.success(`Login Successful, 'Email' = ${user.email}`, {
+                    duration: 3000,
+                    position: "top-center",
+
+                    // Styling
+                    style: {
+                        borderRadius: "10px",
+                        background: "#333",
+                        color: "#fff",
+                    },
+                    className: "",
+
+                    // Custom Icon
+                    icon: '✔️',
+
+                    // Change colors of success/error/loading icon
+                    iconTheme: {
+                        primary: "#000",
+                        secondary: "#fff",
+                    },
+
+                    // Aria
+                    ariaProps: {
+                        role: "status",
+                        "aria-live": "polite",
+                    },
+                });
             })
             .catch(error => {
                 console.error(error)
                 setError(error.message);
+                toast.error(`Error = ${error.message}`, {
+                    duration: 3000,
+                    position: "top-center",
+
+                    // Styling
+                    style: {
+                        borderRadius: "10px",
+                        background: "#333",
+                        color: "#fff",
+                    },
+                    className: "",
+
+                    // Custom Icon
+                    icon: '❌',
+
+                    // Change colors of success/error/loading icon
+                    iconTheme: {
+                        primary: "#000",
+                        secondary: "#fff",
+                    },
+
+                    // Aria
+                    ariaProps: {
+                        role: "status",
+                        "aria-live": "polite",
+                    },
+                });
             })
-         
+
     }
 
     return (

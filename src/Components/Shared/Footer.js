@@ -91,7 +91,34 @@ const Footer = () => {
                                                 to="/"
                                                 rel="noreferrer"
                                             >
-                                                Website
+                                                Home
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                className="text-black transition hover:text-black/75"
+                                                to="/"
+                                                rel="noreferrer"
+                                            >
+                                                About Us
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                className="text-black transition hover:text-black/75"
+                                                to="/"
+                                                rel="noreferrer"
+                                            >
+                                                Contact
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                className="text-black transition hover:text-black/75"
+                                                to="/categories"
+                                                rel="noreferrer"
+                                            >
+                                                Courses
                                             </Link>
                                         </li>
 

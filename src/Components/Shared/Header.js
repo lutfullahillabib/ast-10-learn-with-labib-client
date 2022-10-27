@@ -128,7 +128,7 @@ const Header = () => {
                             }}
                         >
 
-                            <Link to="/profile">
+                            <Link to="/">
                                 {user?.photoURL ?
                                     <img
                                         src={user?.photoURL}
@@ -303,7 +303,7 @@ const Header = () => {
                                             >
 
                                                 <li className='flex justify-center'>
-                                                    <Link to="/profile">
+                                                    <Link to="/">
                                                         {user?.photoURL ?
                                                             <img
                                                                 src={user?.photoURL}

@@ -15,7 +15,7 @@ const CourseDetails = () => {
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
         documentTitle: `Learn-With-Labib-${id}-${category}`,
-        onAfterPrint: () => alert("Print Success!", "", "success")
+        // onAfterPrint: () => alert("Print Success!", "", "success")
     })
 
     return (

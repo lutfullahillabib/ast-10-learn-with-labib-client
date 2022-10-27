@@ -24,9 +24,65 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 navigate('/');
+                toast.success(`Registration Successful, 'Email' = ${user.email}`, {
+                    duration: 3000,
+                    position: "top-center",
+
+                    // Styling
+                    style: {
+                        borderRadius: "10px",
+                        background: "#333",
+                        color: "#fff",
+                    },
+                    className: "",
+
+                    // Custom Icon
+                    icon: '✔️',
+
+                    // Change colors of success/error/loading icon
+                    iconTheme: {
+                        primary: "#000",
+                        secondary: "#fff",
+                    },
+
+                    // Aria
+                    ariaProps: {
+                        role: "status",
+                        "aria-live": "polite",
+                    },
+                });
 
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                toast.error(`Error = ${error.message}`, {
+                    duration: 3000,
+                    position: "top-center",
+
+                    // Styling
+                    style: {
+                        borderRadius: "10px",
+                        background: "#333",
+                        color: "#fff",
+                    },
+                    className: "",
+
+                    // Custom Icon
+                    icon: '❌',
+
+                    // Change colors of success/error/loading icon
+                    iconTheme: {
+                        primary: "#000",
+                        secondary: "#fff",
+                    },
+
+                    // Aria
+                    ariaProps: {
+                        role: "status",
+                        "aria-live": "polite",
+                    },
+                });
+            })
     }
 
     const handleGitHubSignIn = () => {
@@ -36,8 +92,98 @@ const Register = () => {
                 console.log(user);
                 navigate('/');
 
+                if (user.email != null) {
+                    toast.success(`Registration Successful, 'Email' = ${user.email}`, {
+                        duration: 3000,
+                        position: "top-center",
+
+                        // Styling
+                        style: {
+                            borderRadius: "10px",
+                            background: "#333",
+                            color: "#fff",
+                        },
+                        className: "",
+
+                        // Custom Icon
+                        icon: '✔️',
+
+                        // Change colors of success/error/loading icon
+                        iconTheme: {
+                            primary: "#000",
+                            secondary: "#fff",
+                        },
+
+                        // Aria
+                        ariaProps: {
+                            role: "status",
+                            "aria-live": "polite",
+                        },
+                    });
+                }
+                else {
+                    toast.success(`Registration Successful, 'Name' = ${user.displayName}`, {
+                        duration: 3000,
+                        position: "top-center",
+
+                        // Styling
+                        style: {
+                            borderRadius: "10px",
+                            background: "#333",
+                            color: "#fff",
+                        },
+                        className: "",
+
+                        // Custom Icon
+                        icon: '✔️',
+
+                        // Change colors of success/error/loading icon
+                        iconTheme: {
+                            primary: "#000",
+                            secondary: "#fff",
+                        },
+
+                        // Aria
+                        ariaProps: {
+                            role: "status",
+                            "aria-live": "polite",
+                        },
+                    });
+                }
+
+
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                toast.error(`Error = ${error.message}`, {
+                    duration: 3000,
+                    position: "top-center",
+
+                    // Styling
+                    style: {
+                        borderRadius: "10px",
+                        background: "#333",
+                        color: "#fff",
+                    },
+                    className: "",
+
+                    // Custom Icon
+                    icon: '❌',
+
+                    // Change colors of success/error/loading icon
+                    iconTheme: {
+                        primary: "#000",
+                        secondary: "#fff",
+                    },
+
+                    // Aria
+                    ariaProps: {
+                        role: "status",
+                        "aria-live": "polite",
+                    },
+                });
+            })
+
     }
 
     const handleSubmit = event => {
@@ -47,7 +193,42 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoURL, email, password);
+        const confirmPassword = form.confirmPassword.value;
+        console.log(name, photoURL, email, password, confirmPassword);
+
+        if (password !== confirmPassword) {
+            setError("Your Password didn't match.");
+
+            toast.error(`Error = Your Password didn't match.`, {
+                duration: 3000,
+                position: "top-center",
+
+                // Styling
+                style: {
+                    borderRadius: "10px",
+                    background: "#333",
+                    color: "#fff",
+                },
+                className: "",
+
+                // Custom Icon
+                icon: '❌',
+
+                // Change colors of success/error/loading icon
+                iconTheme: {
+                    primary: "#000",
+                    secondary: "#fff",
+                },
+
+                // Aria
+                ariaProps: {
+                    role: "status",
+                    "aria-live": "polite",
+                },
+            });
+            
+            return;
+        }
 
         createUser(email, password)
             .then(result => {
@@ -133,7 +314,36 @@ const Register = () => {
 
         updateUserProfile(profile)
             .then(() => { })
-            .catch(error => console.error(error));
+            .catch(error => {
+                console.error(error)
+                toast.error(`Error = ${error.message}`, {
+                    duration: 3000,
+                    position: "top-center",
+
+                    // Styling
+                    style: {
+                        borderRadius: "10px",
+                        background: "#333",
+                        color: "#fff",
+                    },
+                    className: "",
+
+                    // Custom Icon
+                    icon: '❌',
+
+                    // Change colors of success/error/loading icon
+                    iconTheme: {
+                        primary: "#000",
+                        secondary: "#fff",
+                    },
+
+                    // Aria
+                    ariaProps: {
+                        role: "status",
+                        "aria-live": "polite",
+                    },
+                });
+            });
     }
 
     const handleAccepted = event => {
@@ -160,6 +370,11 @@ const Register = () => {
                     <div className="space-y-1">
                         <label htmlFor="password" className="block text-white text-start font-semibold text-xl">Password</label>
                         <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
+
+                        <div className="space-y-1 py-3">
+                            <label htmlFor="confirmPassword" className="block text-white text-start font-semibold text-xl">Confirm Password</label>
+                            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
+                        </div>
 
                         <div className="flex items-center font-medium italic py-5">
                             <input type="checkbox" name="remember" id="remember" className=" rounded-md focus:ring-blue-900 focus:border-blue-900 focus:ring-2 accent-blue-900 h-5 w-5" onClick={handleAccepted} />

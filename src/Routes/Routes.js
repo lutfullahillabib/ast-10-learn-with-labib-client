@@ -3,7 +3,6 @@ import Checkout from "../Components/Checkout/Checkout";
 import AllCategories from "../Components/Courses/AllCategories";
 import CourseDetails from "../Components/Courses/CourseDetails";
 import CoursesByCategoryList from "../Components/Courses/CoursesByCategoryList";
-import FAQ from "../Components/FAQ/FAQ";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Log/Login";
 import Register from "../Components/Log/Register";
@@ -62,10 +61,6 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog />
-            },
-            {
-                path: '/faq',
-                element: <FAQ />
             },
             {
                 path: '/thanks',
