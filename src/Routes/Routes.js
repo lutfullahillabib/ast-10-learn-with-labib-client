@@ -3,12 +3,15 @@ import Checkout from "../Components/Checkout/Checkout";
 import AllCategories from "../Components/Courses/AllCategories";
 import CourseDetails from "../Components/Courses/CourseDetails";
 import CoursesByCategoryList from "../Components/Courses/CoursesByCategoryList";
+import FAQ from "../Components/FAQ/FAQ";
 import Home from "../Components/Home/Home";
 import Login from "../Components/Log/Login";
 import Register from "../Components/Log/Register";
 import Error from "../Components/Shared/Error";
+import Thanks from "../Components/Thanks/Thanks";
 import Main from "../Layout/Main";
 import { allCategories, singleCategory, singleCourse } from "./Loader";
+import PrivateRoute from "./PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -44,8 +47,9 @@ const router = createBrowserRouter([
                 element: <CourseDetails></CourseDetails>
             },
             {
-                path: '/checkout',
-                element: <Checkout></Checkout>
+                path: '/checkout/:id',
+                loader: singleCourse,
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
             },
             {
                 path: '/login',
@@ -58,6 +62,14 @@ const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog />
+            },
+            {
+                path: '/faq',
+                element: <FAQ />
+            },
+            {
+                path: '/thanks',
+                element: <Thanks />
             },
 
         ]

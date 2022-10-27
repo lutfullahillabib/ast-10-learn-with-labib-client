@@ -34,7 +34,7 @@ const CourseDetails = () => {
 
                             <p className="flex my-3 justify-between">
 
-                                <Link to='/checkout' className='flex gap-3 items-center text-white px-3 py-2 bg-blue-900 rounded-full hover:bg-blue-400 hover:text-black font-semibold'><FaLock />Get Premium Access</Link>
+                                <Link to={`/checkout/${id}`} className='flex gap-3 items-center text-white px-3 py-2 bg-blue-900 rounded-full hover:bg-blue-400 hover:text-black font-semibold'><FaLock />Get Premium Access</Link>
 
                                 <Link to={`/categories/${category}`}>
                                     <button className='text-white hover:text-black'>

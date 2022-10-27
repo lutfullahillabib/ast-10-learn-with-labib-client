@@ -30,7 +30,7 @@ const Blog = () => {
             <Fragment >
 
                 <Accordion open={open === 1} animate={customAnimation}>
-                    <AccordionHeader onClick={() => handleOpen(1)} className='text-blue-700'>
+                    <AccordionHeader onClick={() => handleOpen(1)} className='text-blue-900 '>
                         What is CORS?
                     </AccordionHeader>
                     <AccordionBody className='text-black font-medium text-base'>
@@ -42,7 +42,7 @@ const Blog = () => {
                 </Accordion>
 
                 <Accordion open={open === 2} animate={customAnimation}>
-                    <AccordionHeader onClick={() => handleOpen(2)} className='text-blue-700'>
+                    <AccordionHeader onClick={() => handleOpen(2)} className='text-blue-900'>
                         Why Firebase is Used?
                     </AccordionHeader>
                     <AccordionBody className='text-black font-medium text-base'>
@@ -66,7 +66,7 @@ const Blog = () => {
                 </Accordion>
 
                 <Accordion open={open === 3} animate={customAnimation}>
-                    <AccordionHeader onClick={() => handleOpen(3)} className='text-blue-700'>
+                    <AccordionHeader onClick={() => handleOpen(3)} className='text-blue-900'>
                         How does the private route work?
                     </AccordionHeader>
                     <AccordionBody className='text-black font-medium text-base'>
@@ -75,7 +75,7 @@ const Blog = () => {
                 </Accordion>
 
                 <Accordion open={open === 4} animate={customAnimation}>
-                    <AccordionHeader onClick={() => handleOpen(4)} className='text-blue-700'>
+                    <AccordionHeader onClick={() => handleOpen(4)} className='text-blue-900'>
                         What is Node? How does Node work?
                     </AccordionHeader>
                     <AccordionBody className='text-black font-medium text-base'>

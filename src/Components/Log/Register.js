@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Contexts/AuthProvider';
 
@@ -11,7 +11,9 @@ const Register = () => {
 
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
-    const { createUser, updateUserProfile, verifyEmail, providerLogin } = useContext(AuthContext);
+    const { createUser, updateUserProfile, providerLogin } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const googleProvider = new GoogleAuthProvider()
     const gitHubProvider = new GithubAuthProvider()
@@ -21,6 +23,8 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/');
+
             })
             .catch(error => console.error(error))
     }
@@ -30,6 +34,8 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/');
+
             })
             .catch(error => console.error(error))
     }
@@ -50,9 +56,8 @@ const Register = () => {
                 setError('');
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
-                handleEmailVerification();
 
-                toast.success(`Please verify your 'Email' address. = ${email}`, {
+                toast.success(`Registration Successful, 'Email' = ${email}`, {
                     duration: 3000,
                     position: "top-center",
 
@@ -79,6 +84,8 @@ const Register = () => {
                         "aria-live": "polite",
                     },
                 });
+
+                navigate('/');
 
             })
 
@@ -129,24 +136,18 @@ const Register = () => {
             .catch(error => console.error(error));
     }
 
-    const handleEmailVerification = () => {
-        verifyEmail()
-            .then(() => { })
-            .catch(error => console.error(error));
-    }
-
     const handleAccepted = event => {
         setAccepted(event.target.checked)
     }
 
     return (
         <div className='flex justify-center items-center py-20'>
-            <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-blue-600 text-white">
+            <div className="w-11/12 mx-auto md:w-full max-w-md p-8 space-y-3 rounded-xl bg-blue-600 text-white">
                 <h1 className="text-2xl font-bold text-center">Register</h1>
                 <form onSubmit={handleSubmit} className="space-y-6 ">
                     <div className="space-y-1">
                         <label htmlFor="name" className="block text-white text-start font-semibold text-xl">Name</label>
-                        <input type="text" name="name" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" />
+                        <input type="text" name="name" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md outline-blue-700 bg-blue-100  text-black font-medium text-lg placeholder:text-blue-700 placeholder:font-medium placeholder:italic" required />
                     </div>
                     <div className="space-y-1">
                         <label htmlFor="photoURL" className="block text-white text-start font-semibold text-xl">Photo-URL</label>
@@ -185,7 +186,7 @@ const Register = () => {
                         <FaGoogle className='text-3xl' />
                     </button>
 
-                    <button onClick={handleGitHubSignIn}  title="Register with GitHub" className="p-3  hover:bg-blue-100 hover:text-black rounded-full">
+                    <button onClick={handleGitHubSignIn} title="Register with GitHub" className="p-3  hover:bg-blue-100 hover:text-black rounded-full">
                         <FaGithub className='text-3xl' />
                     </button>
                 </div>

@@ -9,7 +9,7 @@ import toast from 'react-hot-toast';
 const Login = () => {
 
     const [error, setError] = useState('');
-    const { signIn, setLoading, providerLogin } = useContext(AuthContext);
+    const { signIn,  providerLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -23,6 +23,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
     }
@@ -32,6 +33,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
     }
@@ -49,25 +51,18 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                if (user.emailVerified) {
-                    navigate(from, { replace: true });
-                }
-                else {
-                    toast.error(`Your Email is not verified. Please verify your Email address. = ${email}`)
-                }
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.error(error)
                 setError(error.message);
             })
-            .finally(() => {
-                setLoading(false);
-            })
+         
     }
 
     return (
         <div className='flex justify-center items-center py-20'>
-            <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-blue-600 text-white">
+            <div className="w-11/12 mx-auto md:w-full max-w-md p-8 space-y-3 rounded-xl bg-blue-600 text-white">
                 <h1 className="text-2xl font-bold text-center">Login</h1>
                 <form onSubmit={handleSubmit} className="space-y-6 ">
                     <div className="space-y-1">
