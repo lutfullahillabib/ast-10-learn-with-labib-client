@@ -226,7 +226,7 @@ const Register = () => {
                     "aria-live": "polite",
                 },
             });
-            
+
             return;
         }
 
@@ -354,6 +354,7 @@ const Register = () => {
         <div className='flex justify-center items-center py-20'>
             <div className="w-11/12 mx-auto md:w-full max-w-md p-8 space-y-3 rounded-xl bg-blue-600 text-white">
                 <h1 className="text-2xl font-bold text-center">Register</h1>
+
                 <form onSubmit={handleSubmit} className="space-y-6 ">
                     <div className="space-y-1">
                         <label htmlFor="name" className="block text-white text-start font-semibold text-xl">Name</label>
@@ -397,7 +398,12 @@ const Register = () => {
                 </div>
 
                 <div className="flex justify-center space-x-4">
-                    <button onClick={handleGoogleSignIn} title="Register with Google" className="p-3 hover:bg-blue-100 hover:text-black rounded-full">
+                    <button
+
+                        onClick={handleGoogleSignIn} title="Register with Google"
+
+                        className="p-3 hover:bg-blue-100 hover:text-black rounded-full">
+
                         <FaGoogle className='text-3xl' />
                     </button>
 

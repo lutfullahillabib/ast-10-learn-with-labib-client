@@ -92,6 +92,7 @@
 ## https://learn-with-labib-server.vercel.app/courses/${id}
 
 ---
+## - Projects Requirements = https://github.com/ProgrammingHero1/B610-Learning-Platform-Assignment
 ---
 
 # Getting Started with Create React App

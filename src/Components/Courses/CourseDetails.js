@@ -19,6 +19,7 @@ const CourseDetails = () => {
     })
 
     return (
+        
         <div className='flex justify-center items-center' ref={componentRef}>
 
             <div className="py-10 mx-10 md:px-36 lg:px-16" >
